@@ -47,9 +47,9 @@ public partial class MainWindow : Window
     #endregion
 
     #region "Calculation methods"
-    private double Add(double num1, double num2) => num1 + num2;
-    private double Subtract(double num1, double num2) => num1 - num2;
-    private double Multiply(double num1, double num2) => num1 * num2;
-    private double Divide(double num1, double num2) => num1 / num2;
+    public double Add(double num1, double num2) => num1 + num2;
+    public double Subtract(double num1, double num2) => num1 - num2;
+    public double Multiply(double num1, double num2) => num1 * num2;
+    public double Divide(double num1, double num2) => num1 / num2;
     #endregion
 }

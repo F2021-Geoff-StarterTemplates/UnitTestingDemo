@@ -69,7 +69,7 @@
         <!--#region Results Display section -->
         <Border>
         <StackPanel Orientation="Horizontal">
-            <Label x:Name="ResultLabel" Content="0" Width="570"/>
+            <Label x:Name="ResultLabel" Content="0" Width="555"/>
         </StackPanel>
         </Border>
         <!--#endregion-->
