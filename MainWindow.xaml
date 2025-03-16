@@ -6,21 +6,72 @@
         xmlns:local="clr-namespace:UnitTestingDemo"
         mc:Ignorable="d"
         Title="Calculator" Height="250" Width="600">
+
+    <Window.Resources>
+        <!--#region Window element styles -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="LightYellow"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="LightGreen"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Background" Value="LightYellow"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+        <!--#endregion-->
+    </Window.Resources>
+    
     <StackPanel>
+        <!--#region Operations section -->
+        <Border>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="FirstNumberTextBox" Width="100" Margin="5"/>
+                <ComboBox x:Name="OperationComboBox" Width="100" Margin="5">
+                    <ComboBoxItem Content="+"/>
+                    <ComboBoxItem Content="-"/>
+                    <ComboBoxItem Content="*"/>
+                    <ComboBoxItem Content="/"/>
+                </ComboBox>
+                <TextBox x:Name="SecondNumberTextBox" Width="100" Margin="5"/>
+                <Button x:Name="CalculateButton" Content="Calculate" Width="140" Margin="5" Click="CalculateButton_Click"/>
+                <Button x:Name="ClearButton" Content="Clear" Width="90" Margin="5" Click="ClearButton_Click"/>
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Results Display section -->
+        <Border>
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="FirstNumberTextBox" Width="100" Margin="5"/>
-            <ComboBox x:Name="OperationComboBox" Width="100" Margin="5">
-                <ComboBoxItem Content="+"/>
-                <ComboBoxItem Content="-"/>
-                <ComboBoxItem Content="*"/>
-                <ComboBoxItem Content="/"/>
-            </ComboBox>
-            <TextBox x:Name="SecondNumberTextBox" Width="100" Margin="5"/>
-            <Button x:Name="CalculateButton" Content="Calculate" Width="140" Margin="5" Click="CalculateButton_Click"/>
-            <Button x:Name="ClearButton" Content="Clear" Width="90" Margin="5" Click="ClearButton_Click"/>
+            <Label x:Name="ResultLabel" Content="0" Width="570"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label x:Name="ResultLabel" Content="0" Width="150"/>
-        </StackPanel>
+        </Border>
+        <!--#endregion-->
     </StackPanel>
 </Window>

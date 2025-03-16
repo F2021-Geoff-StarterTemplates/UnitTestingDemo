@@ -8,11 +8,12 @@ namespace UnitTestingDemo;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow()     //Default constructor
     {
         InitializeComponent();
     }
 
+    #region "Button click event methods"
     private void CalculateButton_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -43,10 +44,12 @@ public partial class MainWindow : Window
         OperationComboBox.SelectedIndex = -1;
         ResultLabel.Content = string.Empty;
     }
+    #endregion
 
+    #region "Calculation methods"
     private double Add(double num1, double num2) => num1 + num2;
     private double Subtract(double num1, double num2) => num1 - num2;
     private double Multiply(double num1, double num2) => num1 * num2;
     private double Divide(double num1, double num2) => num1 / num2;
-
+    #endregion
 }
