@@ -1,0 +1,26 @@
+﻿<Window x:Class="UnitTestingDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitTestingDemo"
+        mc:Ignorable="d"
+        Title="Calculator" Height="250" Width="600">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="FirstNumberTextBox" Width="100" Margin="5"/>
+            <ComboBox x:Name="OperationComboBox" Width="100" Margin="5">
+                <ComboBoxItem Content="+"/>
+                <ComboBoxItem Content="-"/>
+                <ComboBoxItem Content="*"/>
+                <ComboBoxItem Content="/"/>
+            </ComboBox>
+            <TextBox x:Name="SecondNumberTextBox" Width="100" Margin="5"/>
+            <Button x:Name="CalculateButton" Content="Calculate" Width="140" Margin="5" Click="CalculateButton_Click"/>
+            <Button x:Name="ClearButton" Content="Clear" Width="90" Margin="5" Click="ClearButton_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label x:Name="ResultLabel" Content="0" Width="150"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
