@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitTestingDemo"
         mc:Ignorable="d"
-        Title="Calculator" Height="250" Width="600">
+        Title="Calculator" Height="350" Width="600">
 
     <Window.Resources>
         <!--#region Window element styles -->
@@ -71,6 +71,21 @@
         <StackPanel Orientation="Horizontal">
             <Label x:Name="ResultLabel" Content="0" Width="555"/>
         </StackPanel>
+        </Border>
+        <!--#endregion-->
+        
+        <!--#region Tiered section -->
+        <Border>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tiered Pricing Calculator. Enter a data amount in MB:" VerticalAlignment="Center"/>
+                <TextBox x:Name="DataAmountTextBox" Width="100" Margin="5"/>
+                <Button x:Name="CalculateTieredButton" Content="Calculate" Width="140" Margin="5" Click="CalculateTieredButton_Click"/>
+            </StackPanel>
+        </Border>
+        <Border>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="TierResultLabel" Content="0" Width="555"/>
+            </StackPanel>
         </Border>
         <!--#endregion-->
     </StackPanel>

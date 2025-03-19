@@ -18,9 +18,9 @@ public partial class MainWindow : Window
     {
         try
         {
-            double num1 = Convert.ToDouble(FirstNumberTextBox.Text);
-            double num2 = Convert.ToDouble(SecondNumberTextBox.Text);
-            double result = 0;
+            int num1 = Convert.ToInt32(FirstNumberTextBox.Text);
+            int num2 = Convert.ToInt32(SecondNumberTextBox.Text);
+            int result = 0;
             string operation = (OperationComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
 
             if (operation == "+") { result = Add(num1, num2); }
@@ -44,12 +44,69 @@ public partial class MainWindow : Window
         OperationComboBox.SelectedIndex = -1;
         ResultLabel.Content = string.Empty;
     }
+
+    private void CalculateTieredButton_Click(object sender, RoutedEventArgs e)
+    {
+        string userInput = DataAmountTextBox.Text;
+        TierResultLabel.Content = CalculateTiered(userInput);
+    }
     #endregion
 
     #region "Calculation methods"
-    public double Add(double num1, double num2) => num1 + num2;
-    public double Subtract(double num1, double num2) => num1 - num2;
-    public double Multiply(double num1, double num2) => num1 * num2;
-    public double Divide(double num1, double num2) => num1 / num2;
+    public int Add(int num1, int num2) => num1 + num2;
+    public int Subtract(int num1, int num2) => num1 - num2;
+    public int Multiply(int num1, int num2) => num1 * num2;
+    public int Divide(int num1, int num2)
+    {
+        try { 
+            return num1 / num2;
+        }
+        catch (DivideByZeroException) { 
+            throw new DivideByZeroException("Cannot divide by zero."); }
+    }
+
+    public int CalculateTiered(string dataAmount)
+    {
+        try
+        {
+            int dataAmountInt = Convert.ToInt32(dataAmount);
+            if (dataAmountInt < 0)
+            {
+                throw new InvalidOperationException("Data amount cannot be negative.");
+            }
+            else if (dataAmountInt <= 100)
+            {
+                return 10;
+            }
+            else if (dataAmountInt > 100 && dataAmountInt <= 200)
+            {
+                return 20;
+            }
+            else if (dataAmountInt > 200 && dataAmountInt <= 300)
+            {
+                return 30;
+            }
+            else
+            {
+                return 40;
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            throw new InvalidOperationException("Negative data amount");
+        }
+        catch (FormatException ex)
+        {
+            throw new FormatException("Not a valid number");
+        }
+        catch (OverflowException ex)
+        {
+            throw new OverflowException("Number too large");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("General error");
+        }
+    }
     #endregion
 }
